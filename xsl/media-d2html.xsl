@@ -31,4 +31,26 @@
     <xsl:attribute name="poster" select="string(@value)"/>
   </xsl:template>
   
+  <!-- Audio elements of media domain to HTML -->
+  
+  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_audio ')]">
+    
+    <audio controls="controls">
+      <xsl:sequence select="@id"/>
+      <xsl:apply-templates 
+        select="*[contains(@class, ' d4p-media-d/d4p_media_source ')],
+        *[contains(@class, ' topic/desc ')]"/>
+    </audio>
+  </xsl:template>
+  
+  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_audio ')]/*[contains(@class, ' topic/desc ')]"
+    priority="10"
+    >
+    <p><xsl:apply-templates/></p>
+  </xsl:template>
+  
+  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_media_source ')]">
+    <source src="{@value}" type="{@type}"/>
+  </xsl:template>
+  
 </xsl:stylesheet>
