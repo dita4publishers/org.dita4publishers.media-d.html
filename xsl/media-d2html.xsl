@@ -12,7 +12,7 @@
       <xsl:sequence select="@id, @width, @height"/>
       <xsl:apply-templates 
         select="*[contains(@class, ' d4p-media-d/d4p_video_poster ')],
-        *[contains(@class, ' d4p-media-d/d4p_video_source ')],
+        *[contains(@class, ' d4p-media-d/d4p_media_source ')],
         *[contains(@class, ' topic/desc ')]"/>
     </video>
   </xsl:template>
@@ -23,7 +23,7 @@
     <p><xsl:apply-templates/></p>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_video_source ')]">
+  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_media_source ')]">
     <source src="{@value}" type="{@type}"/>
   </xsl:template>
 
