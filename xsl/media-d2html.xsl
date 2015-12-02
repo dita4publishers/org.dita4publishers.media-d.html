@@ -49,8 +49,4 @@
     <p><xsl:apply-templates/></p>
   </xsl:template>
   
-  <xsl:template match="*[contains(@class, ' d4p-media-d/d4p_media_source ')]">
-    <source src="{@value}" type="{@type}"/>
-  </xsl:template>
-  
 </xsl:stylesheet>
